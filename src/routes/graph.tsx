@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { TopBar } from "@/components/TopBar";
-import { Card, Pill } from "@/components/Primitives";
+import { Pill } from "@/components/Primitives";
 import { Maximize2, Search } from "lucide-react";
 
 export const Route = createFileRoute("/graph")({
