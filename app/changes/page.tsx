@@ -1,12 +1,8 @@
-import { createFileRoute } from "@tanstack/react-router";
+"use client";
+
 import { TopBar } from "@/components/TopBar";
 import { Card, Pill } from "@/components/Primitives";
 import { GitCommit, FileDiff, Plus, Minus } from "lucide-react";
-
-export const Route = createFileRoute("/changes")({
-  head: () => ({ meta: [{ title: "Changes — Dexigen" }] }),
-  component: ChangesPage,
-});
 
 const commits = [
   {
@@ -38,7 +34,7 @@ const diff = [
   { type: "ctx", n: 21, code: "}" },
 ];
 
-function ChangesPage() {
+export default function ChangesPage() {
   return (
     <>
       <TopBar crumbs={[{ label: "core/api-gateway", mono: true }, { label: "Changes" }]} />
@@ -175,3 +171,6 @@ function ChangesPage() {
     </>
   );
 }
+
+
+

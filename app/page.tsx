@@ -1,4 +1,6 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+"use client";
+
+import Link from "next/link";
 import {
   GitCommit,
   AlertTriangle,
@@ -11,13 +13,6 @@ import {
 } from "lucide-react";
 import { TopBar } from "@/components/TopBar";
 import { Card, StatTile, Pill, SectionHeader, Sparkline } from "@/components/Primitives";
-
-export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [{ title: "Dashboard — Dexigen" }],
-  }),
-  component: Dashboard,
-});
 
 const repos = [
   {
@@ -100,7 +95,7 @@ const activity = [
   },
 ];
 
-function Dashboard() {
+export default function DashboardPage() {
   return (
     <>
       <TopBar
@@ -127,13 +122,13 @@ function Dashboard() {
               </p>
               <div className="mt-5 flex items-center gap-2">
                 <Link
-                  to="/suggestions"
+                  href="/suggestions"
                   className="inline-flex items-center gap-1.5 h-8 px-3 rounded-md bg-foreground text-background text-[12.5px] font-medium hover:opacity-90"
                 >
                   Review 28 suggestions <ArrowUpRight className="size-3.5" />
                 </Link>
                 <Link
-                  to="/integrations"
+                  href="/integrations"
                   className="inline-flex items-center gap-1.5 h-8 px-3 rounded-md border border-border text-[12.5px] hover:bg-surface"
                 >
                   Connect a repo
@@ -289,3 +284,6 @@ function Metric({
     </div>
   );
 }
+
+
+

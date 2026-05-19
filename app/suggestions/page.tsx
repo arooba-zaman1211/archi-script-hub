@@ -1,12 +1,8 @@
-import { createFileRoute } from "@tanstack/react-router";
+"use client";
+
 import { TopBar } from "@/components/TopBar";
 import { Card, Pill } from "@/components/Primitives";
 import { Sparkles, Check, X, GitBranch } from "lucide-react";
-
-export const Route = createFileRoute("/suggestions")({
-  head: () => ({ meta: [{ title: "AI Suggestions — Dexigen" }] }),
-  component: SuggestionsPage,
-});
 
 const list = [
   {
@@ -47,7 +43,7 @@ const list = [
   },
 ];
 
-function SuggestionsPage() {
+export default function SuggestionsPage() {
   return (
     <>
       <TopBar
@@ -184,3 +180,6 @@ function SuggestionsPage() {
     </>
   );
 }
+
+
+

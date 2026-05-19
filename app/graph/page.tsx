@@ -1,12 +1,8 @@
-import { createFileRoute } from "@tanstack/react-router";
+"use client";
+
 import { TopBar } from "@/components/TopBar";
 import { Pill } from "@/components/Primitives";
 import { Maximize2, Search } from "lucide-react";
-
-export const Route = createFileRoute("/graph")({
-  head: () => ({ meta: [{ title: "Architecture — Dexigen" }] }),
-  component: GraphPage,
-});
 
 type N = { id: string; x: number; y: number; label: string; kind: "service" | "db" | "edge" | "ext" };
 const nodes: N[] = [
@@ -38,7 +34,7 @@ const colors = {
   ext: "oklch(0.8 0.16 80)",
 } as const;
 
-function GraphPage() {
+export default function GraphPage() {
   return (
     <>
       <TopBar crumbs={[{ label: "acme" }, { label: "Architecture graph" }]} />
@@ -175,3 +171,6 @@ function GraphPage() {
     </>
   );
 }
+
+
+

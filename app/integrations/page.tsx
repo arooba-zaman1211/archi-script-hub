@@ -1,12 +1,8 @@
-import { createFileRoute } from "@tanstack/react-router";
+"use client";
+
 import { TopBar } from "@/components/TopBar";
 import { Card, Pill } from "@/components/Primitives";
 import { Github, Check, ArrowRight, Webhook, KeyRound, GitBranch } from "lucide-react";
-
-export const Route = createFileRoute("/integrations")({
-  head: () => ({ meta: [{ title: "GitHub Integration — Dexigen" }] }),
-  component: IntegrationsPage,
-});
 
 const repos = [
   { name: "acme/api-gateway", branch: "main", connected: true, indexed: "2m ago" },
@@ -17,7 +13,7 @@ const repos = [
   { name: "acme/mobile-app", branch: "main", connected: false },
 ];
 
-function IntegrationsPage() {
+export default function IntegrationsPage() {
   return (
     <>
       <TopBar crumbs={[{ label: "Integrations" }, { label: "GitHub" }]} />
@@ -172,3 +168,6 @@ function Detail({
     </div>
   );
 }
+
+
+

@@ -1,4 +1,7 @@
-import { Link, useRouterState } from "@tanstack/react-router";
+"use client";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import {
   LayoutDashboard,
   BookText,
@@ -28,7 +31,7 @@ const repos = [
 ];
 
 export function AppSidebar() {
-  const path = useRouterState({ select: (s) => s.location.pathname });
+  const path = usePathname();
   const isActive = (to: string) => (to === "/" ? path === "/" : path.startsWith(to));
 
   return (
@@ -64,7 +67,7 @@ export function AppSidebar() {
           return (
             <Link
               key={item.to}
-              to={item.to}
+              href={item.to}
               className={`group flex items-center gap-2.5 px-2 py-1.5 rounded-md text-[13px] transition-colors ${
                 active
                   ? "bg-sidebar-accent text-foreground"
@@ -98,7 +101,7 @@ export function AppSidebar() {
 
       <div className="mt-auto p-3 border-t border-sidebar-border">
         <Link
-          to="/integrations"
+          href="/integrations"
           className="flex items-center gap-2 text-[12.5px] text-sidebar-foreground/80 hover:text-foreground"
         >
           <Settings className="size-3.5" />
@@ -117,3 +120,6 @@ export function AppSidebar() {
     </aside>
   );
 }
+
+
+

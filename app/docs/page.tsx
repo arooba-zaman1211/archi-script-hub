@@ -1,4 +1,5 @@
-import { createFileRoute } from "@tanstack/react-router";
+"use client";
+
 import { TopBar } from "@/components/TopBar";
 import { Card, Pill } from "@/components/Primitives";
 import {
@@ -11,11 +12,6 @@ import {
   Clock,
 } from "lucide-react";
 import { useState } from "react";
-
-export const Route = createFileRoute("/docs")({
-  head: () => ({ meta: [{ title: "Documentation — Dexigen" }] }),
-  component: DocsPage,
-});
 
 type Node = { name: string; type: "folder" | "file"; stale?: boolean; children?: Node[] };
 
@@ -97,7 +93,7 @@ function FileTree({ nodes, depth = 0 }: { nodes: Node[]; depth?: number }) {
   );
 }
 
-function DocsPage() {
+export default function DocsPage() {
   return (
     <>
       <TopBar
@@ -224,3 +220,6 @@ function DocsPage() {
     </>
   );
 }
+
+
+
